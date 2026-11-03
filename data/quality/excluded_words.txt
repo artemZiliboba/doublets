@@ -1,0 +1,3 @@
+# One word per line, lower-case recommended.
+# Add verified mistakes, abbreviations, improper names, or editorial exclusions.
+# A word listed here is removed from both core and extended dictionaries.
