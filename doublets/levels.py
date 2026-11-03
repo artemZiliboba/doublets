@@ -35,10 +35,12 @@ def preferred_shortest_path(graph, start, end, familiar, frequencies):
 
 def generate_levels(core_words, extended_words, *, count=10, min_moves=2,
                     max_moves=6, seed=None, exclusions=(), frequencies=None,
-                    min_length=3, max_length=4):
+                    min_length=3, max_length=4, max_unfamiliar=1,
+                    candidate_limit=500):
     """Generate levels with core endpoints and shortest extended-only paths."""
     if (count < 0 or min_moves < 1 or max_moves < min_moves
-            or not 3 <= min_length <= max_length <= 6):
+            or not 3 <= min_length <= max_length <= 6
+            or max_unfamiliar < 0 or candidate_limit < 1):
         raise ValueError("Require count >= 0, 1 <= min_moves <= max_moves, and 3 <= min_length <= max_length <= 6")
     excluded = {w.strip().lower() for w in exclusions}
     graph = WordGraph(w for w in extended_words if w.strip().lower() not in excluded
@@ -64,11 +66,13 @@ def generate_levels(core_words, extended_words, *, count=10, min_moves=2,
             if end > start and min_moves <= distances.get(end, -1) <= max_moves:
                 candidates.append((start, end, distances[end]))
     rng.shuffle(candidates)
-    levels = []
-    for start, end, distance in candidates[:count]:
+    ranked = []
+    for start, end, distance in candidates[:candidate_limit]:
         path = preferred_shortest_path(graph, start, end, familiar, frequencies)
         rare_words = [w for w in path[1:-1] if w not in familiar]
-        levels.append({
+        if len(rare_words) > max_unfamiliar:
+            continue
+        level = {
             "start": start, "end": end, "min_moves": distance,
             "solution": path,
             "quality": {
@@ -76,8 +80,15 @@ def generate_levels(core_words, extended_words, *, count=10, min_moves=2,
                 "unfamiliar_intermediate_words": rare_words,
                 "intermediate_frequency_sum": sum(frequencies.get(w, 0) for w in path[1:-1]),
             },
-        })
-    return levels
+        }
+        # Prefer no unfamiliar intermediates, then familiar endpoints and
+        # frequent intermediate words. Randomness only breaks score ties.
+        endpoint_frequency = min(frequencies.get(start, 0), frequencies.get(end, 0))
+        score = (len(rare_words), -endpoint_frequency,
+                 -level["quality"]["intermediate_frequency_sum"])
+        ranked.append((score, rng.random(), level))
+    ranked.sort(key=lambda item: (item[0], item[1]))
+    return [level for _, _, level in ranked[:count]]
 
 
 def summarize_levels(levels):
