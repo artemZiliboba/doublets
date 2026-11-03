@@ -17,9 +17,9 @@ class DictionaryQualityTests(unittest.TestCase):
     def test_legacy_and_versioned_exports(self):
         with TemporaryDirectory() as folder:
             path = Path(folder) / "words.json"
-            for data in (["кот", "кит", "ёж"], {"words": ["кот", "кит", "ёж"]}):
+            for data in (["кот", "кит", "ёжик"], {"words": ["кот", "кит", "ёжик"]}):
                 path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
-                self.assertEqual(load_words(path), ["ёж", "кит", "кот"])
+                self.assertEqual(load_words(path), ["ёжик", "кит", "кот"])
 
     def test_invalid_export(self):
         with TemporaryDirectory() as folder:
@@ -46,13 +46,13 @@ class DictionaryQualityTests(unittest.TestCase):
 
     def test_core_subset_and_yo(self):
         result = prepare_quality(
-            ["ёж", "еж", "кот", "кит"],
-            frequencies={"ёж": 8, "еж": 0, "кот": 4, "кит": 1},
+            ["ёжик", "ежик", "кот", "кит"],
+            frequencies={"ёжик": 8, "ежик": 0, "кот": 4, "кит": 1},
             min_frequency=3,
         )
-        self.assertEqual(result["core"], ["ёж", "кот"])
-        self.assertIn("еж", result["extended"])
-        self.assertIn("ёж", result["extended"])
+        self.assertEqual(result["core"], ["ёжик", "кот"])
+        self.assertIn("ежик", result["extended"])
+        self.assertIn("ёжик", result["extended"])
 
     def test_graph_component_statistics(self):
         result = analyze_lengths(["кот", "кит", "бит", "дом"])
