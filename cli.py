@@ -51,6 +51,15 @@ def main(argv=None):
     fi.add_argument("--out", default="data/quality/frequency_ru.txt")
     fi.add_argument("--mode", choices=("exact", "lemma"), default="lemma")
 
+    levels = sub.add_parser("generate-levels", help="Generate levels with core endpoints and extended paths")
+    levels.add_argument("--core", default="data/processed/words_core.json")
+    levels.add_argument("--extended", default="data/processed/words_extended.json")
+    levels.add_argument("--count", type=int, default=10)
+    levels.add_argument("--min-moves", type=int, default=2)
+    levels.add_argument("--max-moves", type=int, default=6)
+    levels.add_argument("--seed", type=int, default=42)
+    levels.add_argument("--out", default="data/processed/levels.json")
+
     args = p.parse_args(argv)
     if args.command == "build":
         words = extract_nouns(args.xml)
@@ -69,6 +78,21 @@ def main(argv=None):
         counts, report = import_frequency_file(args.source, words, mode=args.mode)
         report_path = write_import(counts, report, args.out)
         print(json.dumps({"frequency_file": args.out, "report_file": str(report_path), **report}, ensure_ascii=False, indent=2))
+        return
+
+    if args.command == "generate-levels":
+        from doublets.levels import generate_levels
+        levels_data = generate_levels(
+            load_words(args.core), load_words(args.extended),
+            count=args.count, min_moves=args.min_moves,
+            max_moves=args.max_moves, seed=args.seed,
+        )
+        output = Path(args.out)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(levels_data, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+        print(json.dumps({"output": str(output), "generated": len(levels_data),
+                          "requested": args.count, "levels": levels_data},
+                         ensure_ascii=False, indent=2))
         return
 
     if args.command == "corpus-frequency":
