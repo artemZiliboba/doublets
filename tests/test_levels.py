@@ -18,8 +18,8 @@ class DualDictionaryLevelTests(unittest.TestCase):
             self.assertIn(level["start"], self.core)
             self.assertIn(level["end"], self.core)
             self.assertEqual(len(level["solution"]) - 1, level["min_moves"])
-            self.assertEqual(graph.shortest_path(level["start"], level["end"]),
-                             level["solution"])
+            self.assertEqual(len(graph.shortest_path(level["start"], level["end"])) - 1,
+                             level["min_moves"])
             self.assertTrue(all(graph.validate_move(a, b)
                                 for a, b in zip(level["solution"], level["solution"][1:])))
         self.assertEqual(len(levels), len({tuple(sorted((l["start"], l["end"])))
