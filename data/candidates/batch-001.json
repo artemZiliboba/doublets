@@ -1,0 +1,665 @@
+{
+  "version": 1,
+  "batch_id": "batch-001",
+  "status": "pending",
+  "parameters": {
+    "seed": 42,
+    "min_moves": 2,
+    "max_moves": 5,
+    "max_unfamiliar": 1,
+    "candidate_limit": 2000
+  },
+  "levels": [
+    {
+      "start": "бог",
+      "end": "том",
+      "min_moves": 3,
+      "solution": [
+        "бог",
+        "бой",
+        "той",
+        "том"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 38176.0
+      }
+    },
+    {
+      "start": "год",
+      "end": "том",
+      "min_moves": 3,
+      "solution": [
+        "год",
+        "род",
+        "ром",
+        "том"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 14905.0
+      }
+    },
+    {
+      "start": "под",
+      "end": "раз",
+      "min_moves": 4,
+      "solution": [
+        "под",
+        "год",
+        "гад",
+        "газ",
+        "раз"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 216965.0
+      }
+    },
+    {
+      "start": "мир",
+      "end": "сэр",
+      "min_moves": 2,
+      "solution": [
+        "мир",
+        "мэр",
+        "сэр"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 8154.0
+      }
+    },
+    {
+      "start": "раз",
+      "end": "час",
+      "min_moves": 3,
+      "solution": [
+        "раз",
+        "рай",
+        "чай",
+        "час"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 17359.0
+      }
+    },
+    {
+      "start": "ночь",
+      "end": "тело",
+      "min_moves": 5,
+      "solution": [
+        "ночь",
+        "ноль",
+        "соль",
+        "сель",
+        "село",
+        "тело"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 9336.0
+      }
+    },
+    {
+      "start": "жена",
+      "end": "мера",
+      "min_moves": 2,
+      "solution": [
+        "жена",
+        "мена",
+        "мера"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 7867.0
+      }
+    },
+    {
+      "start": "боль",
+      "end": "путь",
+      "min_moves": 5,
+      "solution": [
+        "боль",
+        "соль",
+        "сель",
+        "сеть",
+        "суть",
+        "путь"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 21554.0
+      }
+    },
+    {
+      "start": "боль",
+      "end": "тело",
+      "min_moves": 4,
+      "solution": [
+        "боль",
+        "соль",
+        "сель",
+        "село",
+        "тело"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 6888.0
+      }
+    },
+    {
+      "start": "роль",
+      "end": "тело",
+      "min_moves": 4,
+      "solution": [
+        "роль",
+        "соль",
+        "сель",
+        "село",
+        "тело"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 6888.0
+      }
+    },
+    {
+      "start": "ночь",
+      "end": "роль",
+      "min_moves": 2,
+      "solution": [
+        "ночь",
+        "ноль",
+        "роль"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 2448.0
+      }
+    },
+    {
+      "start": "чай",
+      "end": "шоу",
+      "min_moves": 5,
+      "solution": [
+        "чай",
+        "рай",
+        "рак",
+        "рок",
+        "шок",
+        "шоу"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 18312.0
+      }
+    },
+    {
+      "start": "чай",
+      "end": "шаг",
+      "min_moves": 3,
+      "solution": [
+        "чай",
+        "май",
+        "маг",
+        "шаг"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 3713.0
+      }
+    },
+    {
+      "start": "босс",
+      "end": "тест",
+      "min_moves": 4,
+      "solution": [
+        "босс",
+        "росс",
+        "рост",
+        "тост",
+        "тест"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 13874.0
+      }
+    },
+    {
+      "start": "сон",
+      "end": "ход",
+      "min_moves": 2,
+      "solution": [
+        "сон",
+        "хон",
+        "ход"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 1375.0
+      }
+    },
+    {
+      "start": "дон",
+      "end": "под",
+      "min_moves": 3,
+      "solution": [
+        "дон",
+        "хон",
+        "ход",
+        "под"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 11828.0
+      }
+    },
+    {
+      "start": "бог",
+      "end": "дон",
+      "min_moves": 2,
+      "solution": [
+        "бог",
+        "бон",
+        "дон"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 1196.0
+      }
+    },
+    {
+      "start": "пора",
+      "end": "рыба",
+      "min_moves": 4,
+      "solution": [
+        "пора",
+        "поза",
+        "роза",
+        "роба",
+        "рыба"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 11346.0
+      }
+    },
+    {
+      "start": "бой",
+      "end": "люк",
+      "min_moves": 4,
+      "solution": [
+        "бой",
+        "бок",
+        "бак",
+        "лак",
+        "люк"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 6392.0
+      }
+    },
+    {
+      "start": "бар",
+      "end": "люк",
+      "min_moves": 3,
+      "solution": [
+        "бар",
+        "бак",
+        "лак",
+        "люк"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 4036.0
+      }
+    },
+    {
+      "start": "роза",
+      "end": "сила",
+      "min_moves": 4,
+      "solution": [
+        "роза",
+        "поза",
+        "пола",
+        "пила",
+        "сила"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 8275.0
+      }
+    },
+    {
+      "start": "днк",
+      "end": "род",
+      "min_moves": 3,
+      "solution": [
+        "днк",
+        "док",
+        "рок",
+        "род"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 10935.0
+      }
+    },
+    {
+      "start": "днк",
+      "end": "дон",
+      "min_moves": 2,
+      "solution": [
+        "днк",
+        "док",
+        "дон"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 8063.0
+      }
+    },
+    {
+      "start": "код",
+      "end": "час",
+      "min_moves": 4,
+      "solution": [
+        "код",
+        "год",
+        "гад",
+        "гас",
+        "час"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 213287.0
+      }
+    },
+    {
+      "start": "код",
+      "end": "чай",
+      "min_moves": 4,
+      "solution": [
+        "код",
+        "год",
+        "гад",
+        "гай",
+        "чай"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 212376.0
+      }
+    },
+    {
+      "start": "гей",
+      "end": "код",
+      "min_moves": 4,
+      "solution": [
+        "гей",
+        "гай",
+        "гад",
+        "год",
+        "код"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 212376.0
+      }
+    },
+    {
+      "start": "док",
+      "end": "раз",
+      "min_moves": 3,
+      "solution": [
+        "док",
+        "рок",
+        "рак",
+        "раз"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 8623.0
+      }
+    },
+    {
+      "start": "зал",
+      "end": "ход",
+      "min_moves": 4,
+      "solution": [
+        "зал",
+        "зад",
+        "гад",
+        "год",
+        "ход"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 215924.0
+      }
+    },
+    {
+      "start": "сеть",
+      "end": "тело",
+      "min_moves": 3,
+      "solution": [
+        "сеть",
+        "сель",
+        "село",
+        "тело"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 2952.0
+      }
+    },
+    {
+      "start": "рот",
+      "end": "сад",
+      "min_moves": 4,
+      "solution": [
+        "рот",
+        "род",
+        "год",
+        "гад",
+        "сад"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 224818.0
+      }
+    },
+    {
+      "start": "зал",
+      "end": "сад",
+      "min_moves": 2,
+      "solution": [
+        "зал",
+        "зад",
+        "сад"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 4938.0
+      }
+    },
+    {
+      "start": "вход",
+      "end": "урок",
+      "min_moves": 3,
+      "solution": [
+        "вход",
+        "уход",
+        "урод",
+        "урок"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 9930.0
+      }
+    },
+    {
+      "start": "код",
+      "end": "лёд",
+      "min_moves": 4,
+      "solution": [
+        "код",
+        "год",
+        "гад",
+        "лад",
+        "лёд"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 212799.0
+      }
+    },
+    {
+      "start": "бакс",
+      "end": "мост",
+      "min_moves": 5,
+      "solution": [
+        "бакс",
+        "бокс",
+        "босс",
+        "росс",
+        "рост",
+        "мост"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 32000.0
+      }
+    },
+    {
+      "start": "дон",
+      "end": "сок",
+      "min_moves": 2,
+      "solution": [
+        "дон",
+        "сон",
+        "сок"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 25415.0
+      }
+    },
+    {
+      "start": "дом",
+      "end": "сок",
+      "min_moves": 2,
+      "solution": [
+        "дом",
+        "док",
+        "сок"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 8063.0
+      }
+    },
+    {
+      "start": "сок",
+      "end": "том",
+      "min_moves": 2,
+      "solution": [
+        "сок",
+        "ток",
+        "том"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 1612.0
+      }
+    },
+    {
+      "start": "кот",
+      "end": "сон",
+      "min_moves": 2,
+      "solution": [
+        "кот",
+        "кон",
+        "сон"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 2728.0
+      }
+    },
+    {
+      "start": "газ",
+      "end": "днк",
+      "min_moves": 5,
+      "solution": [
+        "газ",
+        "раз",
+        "рак",
+        "рок",
+        "док",
+        "днк"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 228035.0
+      }
+    },
+    {
+      "start": "вор",
+      "end": "ход",
+      "min_moves": 2,
+      "solution": [
+        "вор",
+        "хор",
+        "ход"
+      ],
+      "quality": {
+        "unfamiliar_intermediate_count": 0,
+        "unfamiliar_intermediate_words": [],
+        "intermediate_frequency_sum": 2068.0
+      }
+    }
+  ]
+}
