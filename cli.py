@@ -72,7 +72,27 @@ def main(argv=None):
     approved.add_argument("--words", default="data/processed/words_extended.json")
     approved.add_argument("--exclude", default="data/quality/excluded_words.txt")
 
+    batch = sub.add_parser("prepare-batch", help="Generate a new review batch in one command")
+    batch.add_argument("batch_id", help="Unique batch name, e.g. batch-001")
+    batch.add_argument("--count", type=int, default=40)
+    batch.add_argument("--seed", type=int, default=42)
+    batch.add_argument("--min-moves", type=int, default=2)
+    batch.add_argument("--max-moves", type=int, default=5)
+    batch.add_argument("--max-unfamiliar", type=int, default=1)
+    batch.add_argument("--candidate-limit", type=int, default=2000)
+
     args = p.parse_args(argv)
+    if args.command == "prepare-batch":
+        from doublets.level_batches import prepare_batch
+        result = prepare_batch(
+            batch_id=args.batch_id, count=args.count, seed=args.seed,
+            min_moves=args.min_moves, max_moves=args.max_moves,
+            max_unfamiliar=args.max_unfamiliar,
+            candidate_limit=args.candidate_limit,
+        )
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+
     if args.command == "validate-levels":
         from doublets.approved_levels import load_approved_levels, validate_approved_levels
         approved_levels = load_approved_levels(args.levels)
