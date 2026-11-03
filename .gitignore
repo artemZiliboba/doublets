@@ -169,3 +169,8 @@ ecosystem.config.js
 *.db
 .codex
 config.json
+
+# Doublets: locally generated dictionaries and corpus inputs
+data/source/
+data/processed/
+data/quality/frequency_ru.txt
