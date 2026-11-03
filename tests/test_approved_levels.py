@@ -40,8 +40,22 @@ class ApprovedLevelTests(unittest.TestCase):
 
     def test_committed_starter_levels(self):
         levels = load_approved_levels("data/levels_approved.json")
-        self.assertEqual(len(levels), 5)
-        self.assertEqual(validate_approved_levels(levels, self.words), [])
+        # The approved catalog grows with every reviewed batch.
+        # The small fixture dictionary only covers the original five levels.
+        starters = {f"level-{i:03d}" for i in range(1, 6)}
+        by_id = {level["id"]: level for level in levels}
+        self.assertEqual(len(by_id), len(levels), "Duplicate approved level IDs")
+        self.assertTrue(starters.issubset(by_id))
+        self.assertEqual(
+            validate_approved_levels([by_id[identifier] for identifier in sorted(starters)], self.words),
+            [],
+        )
+        self.assertTrue(all(
+            isinstance(level.get("solution"), list) and
+            level["solution"][0] == level.get("start") and
+            level["solution"][-1] == level.get("end")
+            for level in levels
+        ))
 
 
 if __name__ == "__main__":
