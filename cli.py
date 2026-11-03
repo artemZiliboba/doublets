@@ -1,25 +1,89 @@
+"""Command line entry point for the Doublets dictionary and engine."""
 import argparse
 import json
+from collections import Counter
 from pathlib import Path
+
 from doublets import WordGraph, extract_nouns
 from doublets.dictionary import export_words
+from doublets.dictionary_quality import (
+    analyze_lengths, load_words, prepare_quality, read_exclusions,
+    read_frequencies, write_quality_exports,
+)
 
-p = argparse.ArgumentParser()
-sub = p.add_subparsers(dest='command', required=True)
-b = sub.add_parser('build'); b.add_argument('xml'); b.add_argument('--out', default='data/export/words.json')
-for name in ('solve', 'generate', 'stats'):
-    q = sub.add_parser(name)
-    q.add_argument('--words', default='data/export/words.json')
-    if name == 'solve': q.add_argument('start'); q.add_argument('end')
-    if name == 'generate': q.add_argument('--min-moves', type=int, default=2); q.add_argument('--max-moves', type=int, default=6); q.add_argument('--seed', type=int)
-a = p.parse_args()
-if a.command == 'build':
-    words = extract_nouns(a.xml); export_words(words, a.out); print(f'Exported {len(words)} words to {a.out}')
-else:
-    words = json.loads(Path(a.words).read_text(encoding='utf-8'))['words']
+
+def main(argv=None):
+    p = argparse.ArgumentParser(description="Russian Doublets word tools")
+    sub = p.add_subparsers(dest="command", required=True)
+
+    b = sub.add_parser("build", help="Build from OpenCorpora XML")
+    b.add_argument("xml")
+    b.add_argument("--out", default="data/export/words.json")
+
+    bp = sub.add_parser("build-pymorphy", help="Build using installed pymorphy3 dictionaries")
+    bp.add_argument("--out", default="data/export/words.json")
+
+    for name in ("solve", "generate", "stats", "analyze", "quality"):
+        q = sub.add_parser(name)
+        q.add_argument("--words", default="data/export/words.json")
+        if name == "solve":
+            q.add_argument("start")
+            q.add_argument("end")
+        if name == "generate":
+            q.add_argument("--min-moves", type=int, default=2)
+            q.add_argument("--max-moves", type=int, default=6)
+            q.add_argument("--seed", type=int)
+        if name == "quality":
+            q.add_argument("--exclude", default="data/quality/excluded_words.txt")
+            q.add_argument("--frequency", default=None)
+            q.add_argument("--min-frequency", type=float, default=1)
+            q.add_argument("--out-dir", default="data/processed")
+
+    args = p.parse_args(argv)
+    if args.command == "build":
+        words = extract_nouns(args.xml)
+        export_words(words, args.out)
+        print(f"Exported {len(words)} words to {args.out}")
+        return
+
+    if args.command == "build-pymorphy":
+        from build_pymorphy_dictionary import build_dictionary
+        build_dictionary(args.out)
+        return
+
+    words = load_words(args.words)
+    if args.command == "quality":
+        exclusions = read_exclusions(args.exclude) if Path(args.exclude).exists() else set()
+        freq = read_frequencies(args.frequency)
+        result = prepare_quality(
+            words,
+            exclusions=exclusions,
+            frequencies=freq if args.frequency is not None else None,
+            min_frequency=args.min_frequency,
+        )
+        report = write_quality_exports(result, args.out_dir, args.frequency)
+        print(json.dumps(report, ensure_ascii=False, indent=2))
+        return
+
+    if args.command == "analyze":
+        print(json.dumps(analyze_lengths(words), ensure_ascii=False, indent=2))
+        return
+
     graph = WordGraph(words)
-    if a.command == 'solve': print(json.dumps(graph.shortest_path(a.start, a.end), ensure_ascii=False))
-    if a.command == 'generate': print(json.dumps(graph.random_level(a.min_moves, a.max_moves, a.seed), ensure_ascii=False))
-    if a.command == 'stats':
-        from collections import Counter
-        print(json.dumps({'words': len(graph.words), 'by_length': dict(sorted(Counter(map(len, graph.words)).items())), 'isolated': sum(not graph.neighbors(w) for w in graph.words)}, ensure_ascii=False, indent=2))
+    if args.command == "solve":
+        output = graph.shortest_path(args.start, args.end)
+    elif args.command == "generate":
+        if args.min_moves < 0 or args.max_moves < args.min_moves:
+            p.error("Require 0 <= --min-moves <= --max-moves")
+        output = graph.random_level(args.min_moves, args.max_moves, args.seed)
+    else:
+        output = {
+            "words": len(graph.words),
+            "by_length": dict(sorted(Counter(map(len, graph.words)).items())),
+            "isolated": sum(not graph.neighbors(w) for w in graph.words),
+        }
+    print(json.dumps(output, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()
