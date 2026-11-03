@@ -1,3 +1,17 @@
 # One word per line, lower-case recommended.
 # Add verified mistakes, abbreviations, improper names, or editorial exclusions.
 # A word listed here is removed from both core and extended dictionaries.
+
+# Editorial exclusions for a neutral-audience prototype.
+# These are product decisions, NOT assertions that every word is linguistically invalid.
+# Profanity / derogatory language:
+хуй
+сука
+# Unfamiliar or ambiguous forms surfaced by seed=42 review:
+бри
+дук
+нок
+клир
+клок
+вов
+бод
