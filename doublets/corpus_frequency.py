@@ -47,7 +47,7 @@ def build_frequencies(source, dictionary, mode="exact", morph=None):
         # Incorporate paths relative to corpus root and contents, not absolute paths.
         relative = file.name if Path(source).is_file() else file.relative_to(source).as_posix()
         digest.update(relative.encode("utf-8"))
-        digest.update(b"\\0")
+        digest.update(b"\0")
         digest.update(len(data).to_bytes(8, "big"))
         digest.update(data)
         text = data.decode("utf-8-sig")
@@ -86,12 +86,12 @@ def export_frequencies(counts, report, output):
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(
-        "".join(f"{word} {counts[word]}\\n" for word in sorted(counts)),
+        "".join(f"{word} {counts[word]}\n" for word in sorted(counts)),
         encoding="utf-8",
     )
     report_path = output.with_suffix(".report.json")
     report_path.write_text(
-        json.dumps(report, ensure_ascii=False, indent=2) + "\\n",
+        json.dumps(report, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     return report_path
