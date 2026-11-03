@@ -67,7 +67,23 @@ def main(argv=None):
     levels.add_argument("--max-unfamiliar", type=int, default=1)
     levels.add_argument("--candidate-limit", type=int, default=500)
 
+    approved = sub.add_parser("validate-levels", help="Validate manually approved levels against allowed dictionary")
+    approved.add_argument("--levels", default="data/levels_approved.json")
+    approved.add_argument("--words", default="data/processed/words_extended.json")
+    approved.add_argument("--exclude", default="data/quality/excluded_words.txt")
+
     args = p.parse_args(argv)
+    if args.command == "validate-levels":
+        from doublets.approved_levels import load_approved_levels, validate_approved_levels
+        approved_levels = load_approved_levels(args.levels)
+        exclusions = read_exclusions(args.exclude) if Path(args.exclude).exists() else set()
+        errors = validate_approved_levels(approved_levels, load_words(args.words), exclusions)
+        print(json.dumps({"valid": not errors, "levels": len(approved_levels),
+                          "errors": errors}, ensure_ascii=False, indent=2))
+        if errors:
+            raise SystemExit(1)
+        return
+
     if args.command == "build":
         words = extract_nouns(args.xml)
         export_words(words, args.out)
