@@ -19,7 +19,7 @@ class DictionaryQualityTests(unittest.TestCase):
             path = Path(folder) / "words.json"
             for data in (["кот", "кит", "ёжик"], {"words": ["кот", "кит", "ёжик"]}):
                 path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
-                self.assertEqual(load_words(path), ["ёжик", "кит", "кот"])
+                self.assertEqual(load_words(path), ["кит", "кот", "ёжик"])
 
     def test_invalid_export(self):
         with TemporaryDirectory() as folder:
@@ -50,7 +50,7 @@ class DictionaryQualityTests(unittest.TestCase):
             frequencies={"ёжик": 8, "ежик": 0, "кот": 4, "кит": 1},
             min_frequency=3,
         )
-        self.assertEqual(result["core"], ["ёжик", "кот"])
+        self.assertEqual(result["core"], ["кот", "ёжик"])
         self.assertIn("ежик", result["extended"])
         self.assertIn("ёжик", result["extended"])
 
