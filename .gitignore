@@ -174,3 +174,6 @@ config.json
 data/source/
 data/processed/
 data/quality/frequency_ru.txt
+
+# Local corpus frequency diagnostics
+data/quality/frequency_ru.report.json

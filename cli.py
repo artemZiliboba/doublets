@@ -39,6 +39,12 @@ def main(argv=None):
             q.add_argument("--min-frequency", type=float, default=1)
             q.add_argument("--out-dir", default="data/processed")
 
+    cf = sub.add_parser("corpus-frequency", help="Count words in a local UTF-8 text corpus")
+    cf.add_argument("source", help="A .txt file or directory containing .txt files")
+    cf.add_argument("--words", default="data/export/words.json")
+    cf.add_argument("--out", default="data/quality/frequency_ru.txt")
+    cf.add_argument("--mode", choices=("exact", "lemma"), default="exact")
+
     args = p.parse_args(argv)
     if args.command == "build":
         words = extract_nouns(args.xml)
@@ -49,6 +55,14 @@ def main(argv=None):
     if args.command == "build-pymorphy":
         from build_pymorphy_dictionary import build_dictionary
         build_dictionary(args.out)
+        return
+
+    if args.command == "corpus-frequency":
+        from doublets.corpus_frequency import build_frequencies, export_frequencies
+        words = load_words(args.words)
+        counts, report = build_frequencies(args.source, words, mode=args.mode)
+        report_path = export_frequencies(counts, report, args.out)
+        print(json.dumps({"frequency_file": args.out, "report_file": str(report_path), **report}, ensure_ascii=False, indent=2))
         return
 
     words = load_words(args.words)
