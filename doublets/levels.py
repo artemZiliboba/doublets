@@ -36,7 +36,7 @@ def preferred_shortest_path(graph, start, end, familiar, frequencies):
 def generate_levels(core_words, extended_words, *, count=10, min_moves=2,
                     max_moves=6, seed=None, exclusions=(), frequencies=None,
                     min_length=3, max_length=4, max_unfamiliar=1,
-                    candidate_limit=500):
+                    candidate_limit=500, excluded_pairs=()):
     """Generate levels with core endpoints and shortest extended-only paths."""
     if (count < 0 or min_moves < 1 or max_moves < min_moves
             or not 3 <= min_length <= max_length <= 6
@@ -59,11 +59,13 @@ def generate_levels(core_words, extended_words, *, count=10, min_moves=2,
     rng = random.Random(seed)
     starts = core[:]
     rng.shuffle(starts)
+    blocked_pairs = {tuple(sorted(pair)) for pair in excluded_pairs}
     candidates = []
     for start in starts:
         distances = graph.distances(start, max_depth=max_moves)
         for end in by_length[len(start)]:
-            if end > start and min_moves <= distances.get(end, -1) <= max_moves:
+            if (end > start and (start, end) not in blocked_pairs
+                    and min_moves <= distances.get(end, -1) <= max_moves):
                 candidates.append((start, end, distances[end]))
     rng.shuffle(candidates)
     ranked = []
