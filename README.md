@@ -87,6 +87,25 @@ python cli.py corpus-frequency data/source/corpus --mode lemma
 
 Новые тесты автоматически запускаются в GitHub Actions при открытии PR в `master`.
 
+## Импорт большого частотного списка (этап 4)
+
+Используем [FrequencyWords](https://github.com/hermitdave/FrequencyWords) (Hermit Dave, OpenSubtitles 2018). **Данные: CC BY-SA 4.0; код репозитория: MIT.** Исходные частотные данные не добавляются в Git. Соблюдай условия атрибуции и share-alike для производных данных, если будешь публиковать игровой словарь.
+
+В PowerShell из корня проекта:
+
+```powershell
+New-Item -ItemType Directory -Force data/source | Out-Null
+Invoke-WebRequest "https://raw.githubusercontent.com/hermitdave/FrequencyWords/525f9b560de45753a5ea01069454e72e9aa541c6/content/2018/ru/ru_50k.txt" -OutFile "data/source/ru_50k.txt"
+python cli.py import-frequency data/source/ru_50k.txt --mode lemma
+python cli.py quality --frequency data/quality/frequency_ru.txt --min-frequency 100
+```
+
+`--min-frequency 100` — **только стартовый порог** в количестве вхождений из субтитров, не «100 на миллион». Подбирай порог по графу, сравнивая `core_by_length` с `extended_by_length`. Можно запустить `--min-frequency 10`, `100`, `1000` и сравнить отчёты (при каждом запуске `quality` перезаписывает файлы).
+
+Импорт учитывает точные совпадения со словарём и, при `--mode lemma`, некоторые падежные формы через наиболее вероятный разбор pymorphy3. **Омонимия остаётся**; частотный список не заменяет ручную проверку. `--mode exact` пригодится для сравнения без лемматизации. В `data/quality/frequency_ru.report.json` сохраняются SHA256 входного файла и показатели импорта.
+
+Источники и лицензии: [FrequencyWords](https://github.com/hermitdave/FrequencyWords), [OpenSubtitles 2018](https://opus.nlpl.eu/OpenSubtitles2018.php), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). При публикации производного списка требуется отдельное решение о соблюдении условий лицензии; простой отказ от публикации исходника не отменяет их.
+
 ## Файлы
 
 - `doublets/engine.py` — индекс соседей, BFS, проверка ходов и прототип генератора;
