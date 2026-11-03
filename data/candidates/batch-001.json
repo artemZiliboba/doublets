@@ -1,7 +1,7 @@
 {
   "version": 1,
   "batch_id": "batch-001",
-  "status": "pending",
+  "status": "reviewed",
   "parameters": {
     "seed": 42,
     "min_moves": 2,
@@ -23,7 +23,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 38176.0
+        "intermediate_frequency_sum": 38176
       }
     },
     {
@@ -39,7 +39,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 14905.0
+        "intermediate_frequency_sum": 14905
       }
     },
     {
@@ -56,7 +56,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 216965.0
+        "intermediate_frequency_sum": 216965
       }
     },
     {
@@ -71,7 +71,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 8154.0
+        "intermediate_frequency_sum": 8154
       }
     },
     {
@@ -87,7 +87,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 17359.0
+        "intermediate_frequency_sum": 17359
       }
     },
     {
@@ -105,7 +105,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 9336.0
+        "intermediate_frequency_sum": 9336
       }
     },
     {
@@ -120,7 +120,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 7867.0
+        "intermediate_frequency_sum": 7867
       }
     },
     {
@@ -138,7 +138,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 21554.0
+        "intermediate_frequency_sum": 21554
       }
     },
     {
@@ -155,7 +155,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 6888.0
+        "intermediate_frequency_sum": 6888
       }
     },
     {
@@ -172,7 +172,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 6888.0
+        "intermediate_frequency_sum": 6888
       }
     },
     {
@@ -187,7 +187,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 2448.0
+        "intermediate_frequency_sum": 2448
       }
     },
     {
@@ -205,7 +205,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 18312.0
+        "intermediate_frequency_sum": 18312
       }
     },
     {
@@ -221,7 +221,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 3713.0
+        "intermediate_frequency_sum": 3713
       }
     },
     {
@@ -238,7 +238,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 13874.0
+        "intermediate_frequency_sum": 13874
       }
     },
     {
@@ -253,7 +253,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 1375.0
+        "intermediate_frequency_sum": 1375
       }
     },
     {
@@ -269,7 +269,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 11828.0
+        "intermediate_frequency_sum": 11828
       }
     },
     {
@@ -284,7 +284,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 1196.0
+        "intermediate_frequency_sum": 1196
       }
     },
     {
@@ -301,7 +301,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 11346.0
+        "intermediate_frequency_sum": 11346
       }
     },
     {
@@ -318,7 +318,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 6392.0
+        "intermediate_frequency_sum": 6392
       }
     },
     {
@@ -334,7 +334,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 4036.0
+        "intermediate_frequency_sum": 4036
       }
     },
     {
@@ -351,7 +351,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 8275.0
+        "intermediate_frequency_sum": 8275
       }
     },
     {
@@ -367,7 +367,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 10935.0
+        "intermediate_frequency_sum": 10935
       }
     },
     {
@@ -382,7 +382,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 8063.0
+        "intermediate_frequency_sum": 8063
       }
     },
     {
@@ -399,7 +399,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 213287.0
+        "intermediate_frequency_sum": 213287
       }
     },
     {
@@ -416,7 +416,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 212376.0
+        "intermediate_frequency_sum": 212376
       }
     },
     {
@@ -433,7 +433,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 212376.0
+        "intermediate_frequency_sum": 212376
       }
     },
     {
@@ -449,7 +449,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 8623.0
+        "intermediate_frequency_sum": 8623
       }
     },
     {
@@ -466,7 +466,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 215924.0
+        "intermediate_frequency_sum": 215924
       }
     },
     {
@@ -482,7 +482,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 2952.0
+        "intermediate_frequency_sum": 2952
       }
     },
     {
@@ -499,7 +499,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 224818.0
+        "intermediate_frequency_sum": 224818
       }
     },
     {
@@ -514,7 +514,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 4938.0
+        "intermediate_frequency_sum": 4938
       }
     },
     {
@@ -530,7 +530,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 9930.0
+        "intermediate_frequency_sum": 9930
       }
     },
     {
@@ -547,7 +547,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 212799.0
+        "intermediate_frequency_sum": 212799
       }
     },
     {
@@ -565,7 +565,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 32000.0
+        "intermediate_frequency_sum": 32000
       }
     },
     {
@@ -580,7 +580,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 25415.0
+        "intermediate_frequency_sum": 25415
       }
     },
     {
@@ -595,7 +595,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 8063.0
+        "intermediate_frequency_sum": 8063
       }
     },
     {
@@ -610,7 +610,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 1612.0
+        "intermediate_frequency_sum": 1612
       }
     },
     {
@@ -625,7 +625,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 2728.0
+        "intermediate_frequency_sum": 2728
       }
     },
     {
@@ -643,7 +643,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 228035.0
+        "intermediate_frequency_sum": 228035
       }
     },
     {
@@ -658,8 +658,14 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 2068.0
+        "intermediate_frequency_sum": 2068
       }
     }
-  ]
+  ],
+  "review": {
+    "approved": 20,
+    "rejected": 4,
+    "deferred": 16,
+    "note": "Editorial review: approved levels copied into data/levels_approved.json; remaining decisions recorded in data/quality/level_decisions.json. Deferred words require further lexical verification."
+  }
 }
