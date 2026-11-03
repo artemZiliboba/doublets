@@ -45,6 +45,12 @@ def main(argv=None):
     cf.add_argument("--out", default="data/quality/frequency_ru.txt")
     cf.add_argument("--mode", choices=("exact", "lemma"), default="exact")
 
+    fi = sub.add_parser("import-frequency", help="Import local FrequencyWords-style word counts")
+    fi.add_argument("source", help="UTF-8 file with 'word count' per line")
+    fi.add_argument("--words", default="data/export/words.json")
+    fi.add_argument("--out", default="data/quality/frequency_ru.txt")
+    fi.add_argument("--mode", choices=("exact", "lemma"), default="lemma")
+
     args = p.parse_args(argv)
     if args.command == "build":
         words = extract_nouns(args.xml)
@@ -55,6 +61,14 @@ def main(argv=None):
     if args.command == "build-pymorphy":
         from build_pymorphy_dictionary import build_dictionary
         build_dictionary(args.out)
+        return
+
+    if args.command == "import-frequency":
+        from doublets.frequency_import import import_frequency_file, write_import
+        words = load_words(args.words)
+        counts, report = import_frequency_file(args.source, words, mode=args.mode)
+        report_path = write_import(counts, report, args.out)
+        print(json.dumps({"frequency_file": args.out, "report_file": str(report_path), **report}, ensure_ascii=False, indent=2))
         return
 
     if args.command == "corpus-frequency":
