@@ -51,7 +51,39 @@ def main(argv=None):
     fi.add_argument("--out", default="data/quality/frequency_ru.txt")
     fi.add_argument("--mode", choices=("exact", "lemma"), default="lemma")
 
+    levels = sub.add_parser("generate-levels", help="Generate levels with core endpoints and extended paths")
+    levels.add_argument("--core", default="data/processed/words_core.json")
+    levels.add_argument("--extended", default="data/processed/words_extended.json")
+    levels.add_argument("--count", type=int, default=10)
+    levels.add_argument("--min-moves", type=int, default=2)
+    levels.add_argument("--max-moves", type=int, default=6)
+    levels.add_argument("--seed", type=int, default=42)
+    levels.add_argument("--out", default="data/processed/levels.json")
+    levels.add_argument("--report", default="data/processed/levels_report.json")
+    levels.add_argument("--exclude", default="data/quality/excluded_words.txt")
+    levels.add_argument("--frequency", default="data/quality/frequency_ru.txt")
+    levels.add_argument("--min-length", type=int, default=3)
+    levels.add_argument("--max-length", type=int, default=4)
+    levels.add_argument("--max-unfamiliar", type=int, default=1)
+    levels.add_argument("--candidate-limit", type=int, default=500)
+
+    approved = sub.add_parser("validate-levels", help="Validate manually approved levels against allowed dictionary")
+    approved.add_argument("--levels", default="data/levels_approved.json")
+    approved.add_argument("--words", default="data/processed/words_extended.json")
+    approved.add_argument("--exclude", default="data/quality/excluded_words.txt")
+
     args = p.parse_args(argv)
+    if args.command == "validate-levels":
+        from doublets.approved_levels import load_approved_levels, validate_approved_levels
+        approved_levels = load_approved_levels(args.levels)
+        exclusions = read_exclusions(args.exclude) if Path(args.exclude).exists() else set()
+        errors = validate_approved_levels(approved_levels, load_words(args.words), exclusions)
+        print(json.dumps({"valid": not errors, "levels": len(approved_levels),
+                          "errors": errors}, ensure_ascii=False, indent=2))
+        if errors:
+            raise SystemExit(1)
+        return
+
     if args.command == "build":
         words = extract_nouns(args.xml)
         export_words(words, args.out)
@@ -69,6 +101,31 @@ def main(argv=None):
         counts, report = import_frequency_file(args.source, words, mode=args.mode)
         report_path = write_import(counts, report, args.out)
         print(json.dumps({"frequency_file": args.out, "report_file": str(report_path), **report}, ensure_ascii=False, indent=2))
+        return
+
+    if args.command == "generate-levels":
+        from doublets.levels import generate_levels, summarize_levels
+        exclusions = read_exclusions(args.exclude) if Path(args.exclude).exists() else set()
+        frequencies = read_frequencies(args.frequency) if Path(args.frequency).exists() else {}
+        levels_data = generate_levels(
+            load_words(args.core), load_words(args.extended),
+            count=args.count, min_moves=args.min_moves,
+            max_moves=args.max_moves, seed=args.seed,
+            exclusions=exclusions, frequencies=frequencies,
+            min_length=args.min_length, max_length=args.max_length,
+            max_unfamiliar=args.max_unfamiliar,
+            candidate_limit=args.candidate_limit,
+        )
+        output = Path(args.out)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(levels_data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        report = summarize_levels(levels_data)
+        report_path = Path(args.report)
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(json.dumps({"output": str(output), "report": str(report_path),
+                          "requested": args.count, **report, "levels": levels_data},
+                         ensure_ascii=False, indent=2))
         return
 
     if args.command == "corpus-frequency":
