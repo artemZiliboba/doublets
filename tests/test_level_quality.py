@@ -52,6 +52,28 @@ class LevelQualityTests(unittest.TestCase):
         )
         self.assertTrue(all(not (set(level["solution"]) & excluded) for level in levels))
 
+    def test_max_unfamiliar_filters_entire_level(self):
+        extended = ["кот", "кит", "бит"]
+        self.assertEqual(generate_levels(["кот", "бит"], extended,
+                         min_moves=2, max_moves=2, max_unfamiliar=0), [])
+        levels = generate_levels(["кот", "бит"], extended,
+                                 min_moves=2, max_moves=2, max_unfamiliar=1)
+        self.assertEqual(len(levels), 1)
+
+    def test_rank_prefers_clean_level_over_rare_level(self):
+        extended = ["кот", "кит", "бит", "бот", "быт"]
+        core = ["кот", "бит", "бот"]
+        levels = generate_levels(core, extended, count=1, min_moves=1,
+                                 max_moves=2, max_unfamiliar=1, seed=5,
+                                 candidate_limit=100)
+        self.assertEqual(len(levels), 1)
+        self.assertEqual(levels[0]["quality"]["unfamiliar_intermediate_count"], 0)
+
+    def test_invalid_ranking_parameters(self):
+        for kwargs in ({"max_unfamiliar": -1}, {"candidate_limit": 0}):
+            with self.assertRaises(ValueError):
+                generate_levels([], [], **kwargs)
+
     def test_default_length_restricts_six_letter_levels(self):
         self.assertEqual(generate_levels(["машина"], ["машина"]), [])
         with self.assertRaises(ValueError):
