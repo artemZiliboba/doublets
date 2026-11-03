@@ -59,6 +59,11 @@ def main(argv=None):
     levels.add_argument("--max-moves", type=int, default=6)
     levels.add_argument("--seed", type=int, default=42)
     levels.add_argument("--out", default="data/processed/levels.json")
+    levels.add_argument("--report", default="data/processed/levels_report.json")
+    levels.add_argument("--exclude", default="data/quality/excluded_words.txt")
+    levels.add_argument("--frequency", default="data/quality/frequency_ru.txt")
+    levels.add_argument("--min-length", type=int, default=3)
+    levels.add_argument("--max-length", type=int, default=4)
 
     args = p.parse_args(argv)
     if args.command == "build":
@@ -81,17 +86,25 @@ def main(argv=None):
         return
 
     if args.command == "generate-levels":
-        from doublets.levels import generate_levels
+        from doublets.levels import generate_levels, summarize_levels
+        exclusions = read_exclusions(args.exclude) if Path(args.exclude).exists() else set()
+        frequencies = read_frequencies(args.frequency) if Path(args.frequency).exists() else {}
         levels_data = generate_levels(
             load_words(args.core), load_words(args.extended),
             count=args.count, min_moves=args.min_moves,
             max_moves=args.max_moves, seed=args.seed,
+            exclusions=exclusions, frequencies=frequencies,
+            min_length=args.min_length, max_length=args.max_length,
         )
         output = Path(args.out)
         output.parent.mkdir(parents=True, exist_ok=True)
-        output.write_text(json.dumps(levels_data, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
-        print(json.dumps({"output": str(output), "generated": len(levels_data),
-                          "requested": args.count, "levels": levels_data},
+        output.write_text(json.dumps(levels_data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        report = summarize_levels(levels_data)
+        report_path = Path(args.report)
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(json.dumps({"output": str(output), "report": str(report_path),
+                          "requested": args.count, **report, "levels": levels_data},
                          ensure_ascii=False, indent=2))
         return
 
