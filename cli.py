@@ -64,6 +64,8 @@ def main(argv=None):
     levels.add_argument("--frequency", default="data/quality/frequency_ru.txt")
     levels.add_argument("--min-length", type=int, default=3)
     levels.add_argument("--max-length", type=int, default=4)
+    levels.add_argument("--max-unfamiliar", type=int, default=1)
+    levels.add_argument("--candidate-limit", type=int, default=500)
 
     args = p.parse_args(argv)
     if args.command == "build":
@@ -95,6 +97,8 @@ def main(argv=None):
             max_moves=args.max_moves, seed=args.seed,
             exclusions=exclusions, frequencies=frequencies,
             min_length=args.min_length, max_length=args.max_length,
+            max_unfamiliar=args.max_unfamiliar,
+            candidate_limit=args.candidate_limit,
         )
         output = Path(args.out)
         output.parent.mkdir(parents=True, exist_ok=True)
