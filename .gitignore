@@ -177,3 +177,6 @@ data/quality/frequency_ru.txt
 
 # Local corpus frequency diagnostics
 data/quality/frequency_ru.report.json
+
+# Generated frontend bundle
+game-data/

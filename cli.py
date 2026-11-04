@@ -81,7 +81,23 @@ def main(argv=None):
     batch.add_argument("--max-unfamiliar", type=int, default=1)
     batch.add_argument("--candidate-limit", type=int, default=2000)
 
+    game = sub.add_parser("export-game", help="Export validated levels and words for the frontend")
+    game.add_argument("--levels", default="data/levels_approved.json")
+    game.add_argument("--words", default="data/processed/words_extended.json")
+    game.add_argument("--exclude", default="data/quality/excluded_words.txt")
+    game.add_argument("--out-dir", default="game-data")
+
     args = p.parse_args(argv)
+    if args.command == "export-game":
+        from doublets.game_export import export_game
+        try:
+            result = export_game(levels=args.levels, words=args.words,
+                                 exclude=args.exclude, out_dir=args.out_dir)
+        except ValueError as exc:
+            p.error(str(exc))
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+
     if args.command == "prepare-batch":
         from doublets.level_batches import prepare_batch
         result = prepare_batch(
