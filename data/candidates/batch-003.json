@@ -1,7 +1,7 @@
 {
   "version": 1,
   "batch_id": "batch-003",
-  "status": "pending",
+  "status": "reviewed",
   "parameters": {
     "seed": 53,
     "min_moves": 2,
@@ -23,7 +23,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 11203.0
+        "intermediate_frequency_sum": 11203
       }
     },
     {
@@ -40,7 +40,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 7545.0
+        "intermediate_frequency_sum": 7545
       }
     },
     {
@@ -57,7 +57,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 21201.0
+        "intermediate_frequency_sum": 21201
       }
     },
     {
@@ -73,7 +73,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 9192.0
+        "intermediate_frequency_sum": 9192
       }
     },
     {
@@ -88,7 +88,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 3685.0
+        "intermediate_frequency_sum": 3685
       }
     },
     {
@@ -104,7 +104,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 95303.0
+        "intermediate_frequency_sum": 95303
       }
     },
     {
@@ -120,7 +120,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 2990.0
+        "intermediate_frequency_sum": 2990
       }
     },
     {
@@ -137,7 +137,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 20653.0
+        "intermediate_frequency_sum": 20653
       }
     },
     {
@@ -152,7 +152,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 27008.0
+        "intermediate_frequency_sum": 27008
       }
     },
     {
@@ -167,7 +167,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 4293.0
+        "intermediate_frequency_sum": 4293
       }
     },
     {
@@ -182,7 +182,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 1196.0
+        "intermediate_frequency_sum": 1196
       }
     },
     {
@@ -199,7 +199,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 213287.0
+        "intermediate_frequency_sum": 213287
       }
     },
     {
@@ -215,7 +215,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 95303.0
+        "intermediate_frequency_sum": 95303
       }
     },
     {
@@ -232,7 +232,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 212376.0
+        "intermediate_frequency_sum": 212376
       }
     },
     {
@@ -247,7 +247,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 1215.0
+        "intermediate_frequency_sum": 1215
       }
     },
     {
@@ -262,7 +262,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 2728.0
+        "intermediate_frequency_sum": 2728
       }
     },
     {
@@ -279,7 +279,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 87562.0
+        "intermediate_frequency_sum": 87562
       }
     },
     {
@@ -294,7 +294,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 2356.0
+        "intermediate_frequency_sum": 2356
       }
     },
     {
@@ -311,7 +311,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 212799.0
+        "intermediate_frequency_sum": 212799
       }
     },
     {
@@ -327,7 +327,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 5392.0
+        "intermediate_frequency_sum": 5392
       }
     },
     {
@@ -344,7 +344,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 220834.0
+        "intermediate_frequency_sum": 220834
       }
     },
     {
@@ -360,7 +360,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 8794.0
+        "intermediate_frequency_sum": 8794
       }
     },
     {
@@ -376,7 +376,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 3443.0
+        "intermediate_frequency_sum": 3443
       }
     },
     {
@@ -392,7 +392,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 10322.0
+        "intermediate_frequency_sum": 10322
       }
     },
     {
@@ -407,7 +407,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 2466.0
+        "intermediate_frequency_sum": 2466
       }
     },
     {
@@ -424,7 +424,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 8062.0
+        "intermediate_frequency_sum": 8062
       }
     },
     {
@@ -440,7 +440,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 16704.0
+        "intermediate_frequency_sum": 16704
       }
     },
     {
@@ -456,7 +456,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 4046.0
+        "intermediate_frequency_sum": 4046
       }
     },
     {
@@ -472,7 +472,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 14250.0
+        "intermediate_frequency_sum": 14250
       }
     },
     {
@@ -489,7 +489,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 19165.0
+        "intermediate_frequency_sum": 19165
       }
     },
     {
@@ -506,7 +506,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 7143.0
+        "intermediate_frequency_sum": 7143
       }
     },
     {
@@ -522,7 +522,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 15461.0
+        "intermediate_frequency_sum": 15461
       }
     },
     {
@@ -539,7 +539,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 10184.0
+        "intermediate_frequency_sum": 10184
       }
     },
     {
@@ -554,7 +554,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 4293.0
+        "intermediate_frequency_sum": 4293
       }
     },
     {
@@ -572,7 +572,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 104109.0
+        "intermediate_frequency_sum": 104109
       }
     },
     {
@@ -589,7 +589,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 26864.0
+        "intermediate_frequency_sum": 26864
       }
     },
     {
@@ -605,7 +605,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 2990.0
+        "intermediate_frequency_sum": 2990
       }
     },
     {
@@ -621,7 +621,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 18125.0
+        "intermediate_frequency_sum": 18125
       }
     },
     {
@@ -639,7 +639,7 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 5318.0
+        "intermediate_frequency_sum": 5318
       }
     },
     {
@@ -656,8 +656,14 @@
       "quality": {
         "unfamiliar_intermediate_count": 0,
         "unfamiliar_intermediate_words": [],
-        "intermediate_frequency_sum": 26117.0
+        "intermediate_frequency_sum": 26117
       }
     }
-  ]
+  ],
+  "review": {
+    "approved": 13,
+    "rejected": 3,
+    "deferred": 24,
+    "note": "Editorial decisions in approved catalog and decisions registry; deferred pairs need further verification."
+  }
 }
